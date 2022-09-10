@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 class="red">{% block title %}Cats{% endblock %}</h1>
+{% if session.user_id %}
+<a class="action" style="margin-right: 10px;" href="{{ url_for('cat_add') }}">Add Cat</a><a class="action"
+  href="{{ url_for('cat_weight_add') }}">Add
+  Cat
+  Weight</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h3>All Cats</h3>
+{% for cat in cats %}
+<article class="post">
+  <header>
+    <div>
+      <h1 class="yellow">{{ cat['emoji'] }} {{ cat['name'] }}</h1>
+    </div>
+    <h3>Color: {{ cat['color'] }}</h3>
+  </header>
+  <post>
+
+    <body>
+      {% for cat_weight in cat_weights %}
+      {% if cat_weight.cat_id == cat['id'] %}
+      <div>
+        - {{ cat_weight['weight_grams'] }} grams measured on {{ cat_weight['date'] }}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </body>
+  </post>
+</article>
+{% endfor %}
+{% endblock %}

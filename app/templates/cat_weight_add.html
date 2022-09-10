@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Add Cat Weight{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Please add your cat's weight to the Catgram database by inputting its data below. You can only register weights for
+  your own cats.</p>
+<form method="post">
+  <label for="name">Cat Name</label>
+  <input name="name" id="name" required>
+  <label for="weight">Cat Weight (in whole grams)</label>
+  <input name="weight" id="weight" required>
+  <input type="submit" value="Add">
+</form>
+{% endblock %}

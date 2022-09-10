@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Add Cat{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Please add your cat to the Catgram database by inputting its data below.</p>
+<form method="post">
+  <label for="name">Name</label>
+  <input name="name" id="name" required>
+  <label for="emoji">Emoji</label>
+  <input name="emoji" id="emoji" required>
+  <label for="color">Color</label>
+  <input name="color" id="color" required>
+  <input type="submit" value="Add">
+</form>
+{% endblock %}
